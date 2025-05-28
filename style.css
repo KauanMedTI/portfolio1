@@ -1,0 +1,270 @@
+/* ======== Modo Escuro (padrão) ======== */
+body {
+  background-color: #0e0e0e;
+  color: #e0d6f5; /* texto principal */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.text-purple {
+  color: #bb86fc !important;
+}
+
+.bg-purple-dark {
+  background-color: #1e1e2f !important;
+}
+
+/* Cabeçalhos */
+header h1,
+header p {
+  color: #bb86fc;
+}
+
+/* Caixa preta atrás do nome e subtítulo - modo escuro (padrão) */
+.header-box {
+  background-color: #1e1e2f;
+  border: 2px solid #bb86fc;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: inline-block;
+}
+
+/* Links / botões */
+.glow-btn {
+  position: relative;
+  color: #bb86fc;
+  border: 2px solid #bb86fc;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-weight: bold;
+  background: transparent;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, #bb86fc33, transparent 70%);
+  animation: glowMove 3s linear infinite;
+  z-index: 0;
+}
+
+.glow-btn:hover {
+  color: #0e0e0e;
+  background-color: #bb86fc;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #bb86fc, 0 0 20px #bb86fc66;
+}
+
+.glow-btn:hover::before {
+  display: none;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  100% {
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+/* Animações */
+.animate-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-subtitle {
+  color: #e0d6f5;
+  opacity: 0;
+  animation: fadeInText 1.5s ease-out 1s forwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilização das abas */
+.nav-tabs .nav-link {
+  color: #bb86fc;
+  border: none;
+  background-color: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #d1b3ff;
+}
+
+.nav-tabs .nav-link.active {
+  color: #ffffff;
+  background-color: #1e1e2f;
+  border-bottom: 3px solid #bb86fc;
+  font-weight: bold;
+}
+
+/* Badges */
+.skills .badge {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #2d2d44;
+  color: #bb86fc;
+  border: 1px solid #bb86fc;
+  transition: all 0.3s ease;
+}
+
+.skills .badge:hover {
+  background-color: #bb86fc;
+  color: #0e0e0e;
+}
+
+/* Rodapé */
+footer {
+  background-color: transparent;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+  .card .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* ======== Modo Claro ======== */
+body.light-mode {
+  background-color: #e9e8f4;
+  color: #2f2f2f;
+}
+
+body.light-mode .text-purple {
+  color: #6a1b9a !important;
+}
+
+/* Header: caixa clara atrás do nome e subtítulo */
+body.light-mode .header-box {
+  background-color: #e0e0f8;
+  border-color: #6a1b9a;
+}
+
+/* Textos no header modo claro */
+body.light-mode header h1,
+body.light-mode header p {
+  color: #6a1b9a;
+}
+
+/* Nav tabs modo claro */
+body.light-mode .nav-tabs .nav-link {
+  color: #6a1b9a;
+}
+
+body.light-mode .nav-tabs .nav-link.active {
+  background-color: #dcd9f2;
+  color: #4a148c;
+  border-bottom: 3px solid #6a1b9a;
+}
+
+/* Badges modo claro */
+body.light-mode .skills .badge {
+  background-color: #c8c5e9;
+  color: #6a1b9a;
+  border-color: #6a1b9a;
+}
+
+body.light-mode .skills .badge:hover {
+  background-color: #6a1b9a;
+  color: #fff;
+}
+
+/* Botão toggle modo claro */
+.btn-purple {
+  background-color: #bb86fc;
+  color: #0e0e0e;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  border-radius: 0.375rem;
+}
+
+.btn-purple:hover {
+  background-color: #9a4dfc;
+  color: #fff;
+}
+
+/* Botão toggle modo escuro */
+body:not(.light-mode) .btn-purple {
+  background-color: #3700b3;
+  color: #bb86fc;
+  border: 1px solid #bb86fc;
+}
+
+body:not(.light-mode) .btn-purple:hover {
+  background-color: #6200ee;
+  color: #fff;
+}
+
+/* Cards modo escuro */
+.bg-purple-dark {
+  background-color: #1e1e2f !important;
+  color: #bb86fc;
+}
+
+/* Cards modo claro */
+body.light-mode .bg-purple-dark {
+  background-color: #dcd9f2 !important;
+  color: #4a148c;
+}
+
+/* Cards texto modo claro */
+body.light-mode .card-title,
+body.light-mode .card-text {
+  color: #4a148c;
+}
+
+/* Card button modo claro */
+body.light-mode .btn-purple {
+  background-color: #6a1b9a;
+  color: #fff;
+}
+
+body.light-mode .btn-purple:hover {
+  background-color: #4a148c;
+}
+
+/* Animação para AOS */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: ease;
+}
+
+/* Esconder scrollbar no mobile (opcional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #bb86fc66;
+  border-radius: 4px;
+}
